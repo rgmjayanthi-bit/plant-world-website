@@ -1,0 +1,437 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant World | 10 Best Sellers</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;600&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+    font-size: clamp(16px, 2vw, 18px);
+}
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: #f5f1e8;
+            font-family: 'Poppins', sans-serif;
+            color: white;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 8%;
+            background: #5c4033;
+            width: 100%;
+            position: relative;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo {
+            font-family: 'Pacifico', cursive;
+            font-size: 24px;
+            color: #f8e7b0;
+        }
+
+        #menu-toggle {
+            display: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #f8e7b0;
+        }
+
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 8%;
+            background:
+                linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                url('https://images.unsplash.com/photo-1466692476868-aef1dfb1e735?auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .hero-content {
+            width: 600px;
+        }
+
+        .hero-content h1 {
+            font-family: 'Pacifico', cursive;
+            font-size: clamp(40px, 8vw, 65px);
+            margin-bottom: 20px;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.4s;
+            cursor: pointer;
+            border: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: #8b6f47;
+            color: white;
+        }
+
+        .btn-outline {
+            border: 2px solid white;
+            color: white;
+            background: transparent;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+        }
+
+
+        .section-padding {
+            padding: 80px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Pacifico', cursive;
+            font-size: 45px;
+            margin-bottom: 50px;
+            color: #5c4033;
+        }
+
+
+        .shop-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .plant-card {
+            background: #fffaf3;
+            padding: 20px;
+            border-radius: 25px;
+            text-align: center;
+            flex: 1 1 300px;
+            width: 350px;
+            border: 1px solid #d8c7a1;
+            transition: 0.4s;
+            color: #333;
+        }
+
+        .plant-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .plant-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 20px;
+            margin-bottom: 15px;
+        }
+
+        .price {
+    font-size: 24px;
+    color: #4e5a4f;
+    font-weight: 600;
+    margin: 10px;
+}
+        .care-section {
+            background: #cbb89d;
+        }
+
+        .tips-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .tip-card {
+            flex: 1 1 250px;
+            text-align: center;
+            padding: 30px;
+            color: #3d2b1f;
+        }
+
+        .tip-card span {
+            font-size: 60px;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .contact-box {
+            max-width: 100%;
+            width: 600px;
+            margin: auto;
+            background: #8b6f47;
+            padding: 40px;
+            border-radius: 30px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        input,
+        textarea {
+            padding: 15px;
+            border-radius: 10px;
+            border: none;
+            font-family: inherit;
+        }
+
+        footer {
+            text-align: center;
+            padding: 50px;
+            background: #f5f1e8;
+            color: #5c4033;
+        }
+
+        @media(max-width:768px) {
+            .hamburger {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+                cursor: pointer;
+            }
+
+            .hamburger span {
+                width: 25px;
+                height: 3px;
+                background: white;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: #5c4033;
+                padding: 20px;
+                text-align: center;
+            }
+
+            #menu-toggle:checked~.nav-links {
+                display: flex;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="logo">PLANT WORLD</div>
+
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#shop">Shop</a>
+            <a href="#care">Care</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Take Care Of Your Plants</h1>
+            <p>Transform your living space with our premium indoor greenery. Healthy plants, healthy life.</p>
+            <div class="hero-btns">
+                <a href="#shop" class="btn btn-primary">Browse Shop</a>
+                <a href="#care" class="btn btn-outline">Learn Care</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="section-padding" id="shop">
+        <h2 class="section-title">Our 12 Best Sellers</h2>
+        <div class="shop-container">
+            <div class="plant-card">
+                <img src="assets/7days Rose.jpg">
+
+                <h3>7 Days Rose</h3>
+                <p>Beautiful fragrant flower.</p>
+                <p class="price">₹499</p>
+                <button class="btn btn-primary" style="width:100%">Buy Now</button>
+            </div>
+
+            <div class="plant-card">
+                <img src="assets/Jasmine.jpg">
+                <h3>Jasmine Flower</h3>
+                <p>Sweet natural fragrance.</p>
+                <p class="price">₹699</p>
+                <button class="btn btn-primary" style="width:100%">Buy Now</button>
+            </div>
+
+            <div class="plant-card">
+                <img src="assets/peace lily.jpg">
+                <h3>Peace Lily</h3>
+                <p>Elegant indoor plant.</p>
+                <p class="price">₹899</p>
+                <button class="btn btn-primary" style="width:100%">Buy Now</button>
+            </div>
+
+            <div class="plant-card">
+                <img src="assets/hibiscus.jpg">
+                <h3>Hibiscus</h3>
+                <p>Bright colorful blooms.</p>
+                <p class="price">₹599</p>
+                <button class="btn btn-primary" style="width:100%">Buy Now</button>
+            </div>
+
+            <div class="plant-card">
+                <img src="assets/marigold.jpg">
+                <h3>Marigold</h3>
+                <p>Golden festive flowers.</p>
+                <p class="price">₹450</p>
+                <button class="btn btn-primary" style="width:100%">Buy Now</button>
+            </div>
+
+            <div class="plant-card">
+                <img src="assets/sunflower.jpg">
+                <h3>Sunflower Plant</h3>
+                <p>Bright and beautiful sunflower plant.</p>
+                <p class="price">₹349</p>
+                <button class="btn btn-primary" style="width:100%">Buy Now</button>
+            </div>
+            <div class="plant-card">
+                <img src="assets/potato plant.jpg">
+                <h3>Potato Plant</h3>
+                <p>Organic farm potatoes.</p>
+                <p class="price">₹199</p>
+                <button class="btn btn-primary" style="width:100%">Buy Now</button>
+            </div>
+
+            <div class="plant-card">
+                <img src="assets/ginger.jpg">
+                <h3>Ginger Plant</h3>
+                <p>Fresh organic ginger roots.</p>
+                <p class="price">₹169</p>
+                <button class="btn btn-primary" style="width:100%">Buy Now</button>
+            </div>
+
+            <div class="plant-card">
+                <img src="assets/peas.jpg">
+                <h3>Peas Plant</h3>
+                <p>Fresh green pea pods.</p>
+                <p class="price">₹349</p>
+                <button class="btn btn-primary" style="width:100%">Buy Now</button>
+            </div>
+
+            <div class="plant-card">
+                <img src="assets/Raddish.jpg">
+                <h3>Radish Plant</h3>
+                <p>Crispy garden radish.</p>
+                <p class="price">₹220</p>
+                <button class="btn btn-primary" style="width:100%">Buy Now</button>
+            </div>
+
+            <div class="plant-card">
+                <img src="assets/Tomato.jpg">
+                <h3>Tomato Plant</h3>
+                <p>Fresh juicy tomatoes.</p>
+                <p class="price">₹399</p>
+                <button class="btn btn-primary" style="width:100%">Buy Now</button>
+            </div>
+
+            <div class="plant-card">
+                <img src="assets/carrot.jpg">
+                <h3>Carrot Plant</h3>
+                <p>Fresh healthy carrot crop.</p>
+                <p class="price">₹299</p>
+                <button class="btn btn-primary" style="width:100%">Buy Now</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding care-section" id="care">
+        <h2 class="section-title">Quick Care Tips</h2>
+        <div class="tips-container">
+            <div class="tip-card"><span>☀️</span>
+                <h3>Indirect Sun</h3>
+                <p>Avoid direct afternoon rays.</p>
+            </div>
+            <div class="tip-card"><span>💧</span>
+                <h3>Deep Water</h3>
+                <p>Check soil dryness first.</p>
+            </div>
+            <div class="tip-card"><span>🌬️</span>
+                <h3>Air Flow</h3>
+                <p>Keep in airy spaces.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-padding" id="contact">
+        <h2 class="section-title">Message Us</h2>
+        <div class="contact-box">
+            <form>
+                <input type="text" placeholder="Full Name" required>
+                <input type="email" placeholder="Email Address" required>
+                <textarea rows="5" placeholder="How can we help?"></textarea>
+                <button type="submit" class="btn btn-outline" style="width:100%">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Plant World. Grow green, stay happy 🌿</p>
+    </footer>
+
+</body>
+
+</html>
